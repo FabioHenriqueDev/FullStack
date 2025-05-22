@@ -1,0 +1,43 @@
+# 🧩 EXPLICAÇÃO DO docker-compose.yml
+# version: '3.8'
+# Versão do Compose que estamos usando.
+
+# services:
+# Define os serviços (containers).
+
+# mysql:
+# Nome do serviço.
+
+# image: mysql:8.0
+# Usa a imagem oficial do MySQL, versão 8.0.
+
+# container_name: mysql
+# Dá um nome fixo ao container.
+
+# restart: always
+# Garante que o container reinicie automaticamente caso caia.
+
+# ports:
+# "3306:3306": mapeia a porta local para a porta do MySQL.
+
+# env_file:
+# Carrega variáveis de ambiente do arquivo .env.
+
+# volumes:
+# Cria um volume chamado mysql_data que guarda os dados do banco.
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    ports:
+      - "3307:3306"
+    env_file:
+      - .env
+    volumes:
+      - mysql_data:/var/lib/mysql
+volumes:
+  mysql_data:
+
+
